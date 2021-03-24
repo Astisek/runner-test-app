@@ -1,0 +1,189 @@
+.header
+	width: 100%
+	background: $colorBlack
+	&__title
+		color: #fff
+		margin-left: 20px
+		padding: 10px
+		font-size: 2rem
+		font-weight: bold
+
+
+
+.walking-block
+	display: grid
+	grid-gap: 20px
+	grid-template-columns: 1fr 2fr
+	margin-top: 60px
+	max-height: 580px
+	margin-bottom: 30px
+
+// ---------------------------------- Table ---------------------------------- 
+
+.walking-table
+	box-shadow: 0 0 10px 1px rgba(#000, .3)
+	display: flex
+	flex-direction: column
+	justify-content: space-between
+	height: 580px
+	&__button
+		outline: none
+		background: $colorActive
+		border: none
+		font-size: 1.5rem
+		color: #fff
+		cursor: pointer
+		transition: .3s
+		min-height: 60px
+		&:hover
+			background: $colorBlack
+			color: $colorWhite
+	
+	&__header
+		padding: 16px
+		background: $colorBlack
+		display: grid
+		grid-template-columns: 1fr 1fr
+		&-item
+			font-size: 1.15rem
+			color: #fff
+			cursor: pointer
+			&::after
+				content: url('../img/vector.png')
+				margin-left: 4px
+				display: inline-block
+				padding: 0px 3px
+				background: $colorActive
+				// opacity: .5
+				border-radius: 2px
+				// transform: rotate(180deg)
+			&--disable
+				opacity: .5
+			&--reverse:after
+				transform: rotate(180deg)
+
+
+
+
+	&-content
+		overflow-y: scroll		
+		font-family: 'PT Sans', sans-serif;
+		height: 100%
+		&::-webkit-scrollbar
+			width: 5px
+			background-color: $colorBlack
+		&::-webkit-scrollbar-thumb 
+			background: $colorActive
+		&__row
+			width: 100%
+			display: grid
+			position: relative
+			padding: 4px 16px
+			grid-template: 20px 20px / 1fr 1fr
+			grid-template-areas: "day range" "date range"
+			&:nth-child(2n)
+				background: $colorWhite
+			&:nth-child(2n-1)
+				background: #fff
+		&__action
+			position: absolute
+			top: 50%
+			transform: translateY(-40%)
+			right: 10px
+			&-enter
+				opacity: 0
+				transform: translate(-100%, -40%)
+			&-enter-active
+				opacity: 1
+				transform: translate(0, -40%)
+				transition: .3s
+			&-exit
+				opacity: 1
+			&-exit-active
+				opacity: 0
+				transform: translate(-100%, -40%)
+				transition: .3s
+
+			&-button
+				outline: none
+				width: 15px
+				background: transparent
+				border: none
+				cursor: pointer
+				& + .walking-table-content__action-button
+					margin-left: 6px
+		&__day
+			grid-area: day
+			align-self: end
+			font-size: 0.8rem
+			color: rgba(28, 32, 37, 0.4)
+		&__date
+			grid-area: date
+			font-size: 1.1rem
+			align-self: start
+		&__range
+			grid-area: range
+			align-self: center
+			font-size: 1rem
+
+// ---------------------------------- Chart ---------------------------------- 
+
+.chart-block
+	box-shadow: 0 0 10px 1px rgba(#000, .3)
+	display: flex
+	flex-direction: column
+	background: #fff
+	justify-content: space-between
+	height: 580px
+	&__title
+		font-size: 3rem
+		font-weight: bold
+		margin-left: 20px
+		margin-top: 10px
+	&__description
+		display: grid
+		grid-template-columns: repeat(3, 1fr)
+		font-size: 1.5rem
+		color: #fff
+		font-weight: bold
+		align-items: center
+		background: $colorBlack
+		min-height: 60px
+		padding: 0 20px
+		& > *
+			padding: 10px 0
+		&-sum
+			text-align: right
+
+@media (max-width: 725px)
+	.walking-block
+		grid-template-columns: 1fr
+		max-height: 1180px
+
+.chart
+	width: 100%
+	padding: 0 20px
+
+.custom-tooltip 
+	box-shadow: 0 0 8px 1px rgba(0, 0, 0, .3)
+	display: inline-block
+	border-radius: 7px
+	padding: 7px
+	background: #fff
+	display: flex
+	flex-direction: column
+	width: 100px
+	margin-top: -95%
+
+.custom-tooltip__day
+	color: rgba(0, 0, 0, .3)
+	font-size: 1rem
+
+.custom-tooltip__date 
+	color: rgba(0, 0, 0, .7)
+	font-size: 1.2rem
+
+.custom-tooltip__distance 
+	font-size: 1.7rem
+	align-self: center
+	padding: 5px 0

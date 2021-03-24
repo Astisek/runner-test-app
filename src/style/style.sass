@@ -1,0 +1,51 @@
+// @import 'all'
+// @import 'main'
+// @import 'modal'
+
+.walking-table-content__action
+	position: absolute
+	top: 50%
+	transform: translateY(-40%)
+	right: 10px
+	&-enter
+		opacity: 0
+		transform: translate(-100%, -40%)
+	&-enter-active
+		opacity: 1
+		transform: translate(0, -40%)
+		transition: .3s
+	&-exit
+		opacity: 1
+	&-exit-active
+		opacity: 0
+		transform: translate(-100%, -40%)
+		transition: .3s
+
+  
+.chart
+	width: 100%
+	padding: 0 20px
+
+.custom-tooltip 
+	box-shadow: 0 0 8px 1px rgba(0, 0, 0, .3)
+	display: inline-block
+	border-radius: 7px
+	padding: 7px
+	background: #fff
+	display: flex
+	flex-direction: column
+	width: 100px
+	margin-top: -95%
+
+.custom-tooltip__day
+	color: rgba(0, 0, 0, .3)
+	font-size: 1rem
+
+.custom-tooltip__date 
+	color: rgba(0, 0, 0, .7)
+	font-size: 1.2rem
+
+.custom-tooltip__distance 
+	font-size: 1.7rem
+	align-self: center
+	padding: 5px 0
